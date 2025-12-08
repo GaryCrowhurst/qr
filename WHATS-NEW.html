@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New | CodeEdAI QR Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #fff;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 768px) {
+            .comparison { grid-template-columns: 1fr; }
+        }
+        .column {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .column h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .old { border-color: rgba(255,99,71,0.3); }
+        .new { border-color: rgba(0,255,136,0.3); }
+        .old h2 { color: #ff6347; }
+        .new h2 { color: #00ff88; }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .new-badge {
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: auto;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,204,111,0.1) 100%);
+            border: 2px solid rgba(0,255,136,0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        .highlight-box h2 {
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,255,136,0.5);
+            box-shadow: 0 10px 30px rgba(0,255,136,0.2);
+        }
+        .feature-card h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            text-align: center;
+        }
+        .stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,255,136,0.3);
+            border-radius: 12px;
+            padding: 30px;
+            min-width: 150px;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ff88;
+            display: block;
+        }
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 CodeEdAI QR Generator</h1>
+        <p class="subtitle">From basic generator to professional educator toolkit</p>
+
+        <div class="comparison">
+            <div class="column old">
+                <h2>📦 Original Version</h2>
+                <ul class="feature-list">
+                    <li><span class="icon">🔗</span> Basic QR code generation</li>
+                    <li><span class="icon">🎨</span> Fixed dark theme only</li>
+                    <li><span class="icon">📱</span> Four QR types (URL, Text, Email, WiFi)</li>
+                    <li><span class="icon">📐</span> Three sizes (Small, Medium, Large)</li>
+                    <li><span class="icon">💾</span> PNG & SVG export</li>
+                    <li><span class="icon">🎯</span> Manual generation (button click)</li>
+                    <li><span class="icon">⚡</span> Single QR at a time</li>
+                </ul>
+            </div>
+
+            <div class="column new">
+                <h2>✨ CodeEdAI Enhanced Version</h2>
+                <ul class="feature-list">
+                    <li>
+                        <span class="icon">🔗</span> 
+                        Advanced QR generation
+                    </li>
+                    <li>
+                        <span class="icon">🌓</span> 
+                        Light/Dark theme toggle
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <span class="icon">👁️</span> 
+                        Live preview as you type
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <span class="icon">🖼️</span> 
+                        Logo embedding support
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <span class="icon">🎨</span> 
+                        Custom styles (Square, Dots, Rounded)
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <span class="icon">📦</span> 
+                        Batch CSV → ZIP generation
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <span class="icon">💾</span> 
+                        PNG, SVG & PDF export
+                        <span class="new-badge">PDF</span>
+                    </li>
+                    <li>
+                        <span class="icon">📱</span> 
+                        PWA with offline support
+                        <span class="new-badge">NEW</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">7</span>
+                <span class="stat-label">New Features</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Export Formats</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Batch Capacity</span>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>🎯 Key Improvements Breakdown</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🖼️ Logo Integration</h3>
+                    <p>Add your school logo or custom branding to QR codes. Perfect for professional materials and school-wide consistency.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👁️ Live Preview</h3>
+                    <p>See your QR code update in real-time as you type. No more clicking "Generate" repeatedly. Instant visual feedback!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌓 Theme Toggle</h3>
+                    <p>Switch between light and dark modes for comfortable viewing in any environment. Preference saved automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Batch Processing</h3>
+                    <p>Upload a CSV with hundreds of URLs and generate all QR codes at once. Download as a single ZIP file.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Custom Styles</h3>
+                    <p>Choose from Square (classic), Dots (modern), or Rounded (friendly) designs to match your brand aesthetic.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📄 PDF Export</h3>
+                    <p>Generate professional PDF documents with your QR codes. Perfect for printing and formal documentation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 PWA Support</h3>
+                    <p>Install as a native app on any device. Works completely offline after first load. No internet required!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Enhanced UX</h3>
+                    <p>Modern, distinctive design with smooth animations, better typography, and improved accessibility throughout.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 30px; background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(29,78,216,0.1) 100%); border-color: rgba(59,130,246,0.3);">
+            <h2 style="color: #3b82f6;">💡 Perfect For Educators</h2>
+            <ul class="feature-list">
+                <li><span class="icon">🎓</span> Create unique codes for each student's portfolio</li>
+                <li><span class="icon">📚</span> Link to lesson plans and digital resources</li>
+                <li><span class="icon">🏫</span> Generate classroom WiFi QR codes instantly</li>
+                <li><span class="icon">👥</span> Batch process codes for entire classes</li>
+                <li><span class="icon">🎨</span> Brand with school logo for professional look</li>
+                <li><span class="icon">📱</span> Use offline in classrooms without internet</li>
+                <li><span class="icon">🔒</span> 100% private - all processing in your browser</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px;">
+            <h2 style="color: #00ff88; margin-bottom: 20px;">Ready to transform your classroom?</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 20px;">
+                Open <strong style="color: #fff;">qr-generator-pro.html</strong> to start creating with CodeEdAI
+            </p>
+            <a href="qr-generator-pro.html" style="display: inline-block; background: #00ff88; color: #0a0a0a; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; margin-top: 10px; transition: all 0.2s;">
+                Launch CodeEdAI QR Generator →
+            </a>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">
+            Built with ❤️ by <a href="https://codeedai.com" style="color: #00ff88; text-decoration: none; font-weight: 600;">CodeEdAI.com</a>
+        </div>
+    </div>
+</body>
+</html>

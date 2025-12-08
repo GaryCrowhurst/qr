@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide | CodeEdAI QR Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #00cc6f;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid #00cc6f;
+            padding-left: 15px;
+        }
+        .option {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #00cc6f;
+        }
+        .option h3 {
+            color: #00cc6f;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .file-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .file-list li {
+            margin: 8px 0;
+            padding-left: 10px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .button {
+            display: inline-block;
+            background: #00cc6f;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+        .button:hover {
+            background: #00a159;
+        }
+        ul { margin-left: 20px; }
+        li { margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 CodeEdAI QR Generator Setup</h1>
+        <p class="subtitle">Get your professional QR code generator up and running in minutes</p>
+
+        <h2>📦 What You've Got</h2>
+        <div class="file-list">
+            <ul>
+                <li><strong>qr-generator-pro.html</strong> - The main application</li>
+                <li><strong>manifest.json</strong> - PWA configuration</li>
+                <li><strong>sw.js</strong> - Service worker for offline support</li>
+                <li><strong>sample-batch.csv</strong> - Example CSV for batch generation</li>
+                <li><strong>README.md</strong> - Comprehensive documentation</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Quick Start Options</h2>
+
+        <div class="option">
+            <h3>Option 1: Double-Click (Easiest)</h3>
+            <p><strong>Perfect for: </strong>Immediate use on your computer</p>
+            <ol>
+                <li>Simply double-click <code>qr-generator-pro.html</code></li>
+                <li>It opens in your default browser</li>
+                <li>Start creating QR codes immediately!</li>
+            </ol>
+            <div class="warning">
+                ⚠️ <strong>Note:</strong> PWA features won't work with file:// protocol. For full offline support, use one of the other options.
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>Option 2: Host on GitHub Pages (Recommended)</h3>
+            <p><strong>Perfect for: </strong>Sharing with colleagues, full PWA support</p>
+            <ol>
+                <li>Create a new GitHub repository</li>
+                <li>Upload all files to the repository</li>
+                <li>Go to Settings → Pages</li>
+                <li>Enable GitHub Pages from main branch</li>
+                <li>Share your URL: <code>https://yourusername.github.io/qr-pro/qr-generator-pro.html</code></li>
+            </ol>
+            <div class="success">
+                ✅ <strong>Benefits:</strong> Full PWA support, easy sharing, professional URL
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>Option 3: Simple Python Server (For Testing)</h3>
+            <p><strong>Perfect for: </strong>Local testing with PWA features</p>
+            <p><strong>Step 1:</strong> Open terminal/command prompt in the folder with your files</p>
+            <p><strong>Step 2:</strong> Run one of these commands:</p>
+            <code>python -m http.server 8000</code><br>
+            <small style="color: #666;">or if you have Python 2:</small><br>
+            <code>python -m SimpleHTTPServer 8000</code>
+            <p><strong>Step 3:</strong> Open browser to <code>http://localhost:8000/qr-generator-pro.html</code></p>
+        </div>
+
+        <div class="option">
+            <h3>Option 4: Add to Your School Website</h3>
+            <p><strong>Perfect for: </strong>School-wide access</p>
+            <ol>
+                <li>Upload all files to your school's web hosting</li>
+                <li>Link to it from your staff resources page</li>
+                <li>Teachers can access and install as PWA</li>
+            </ol>
+        </div>
+
+        <h2>🎨 First Steps After Opening</h2>
+        <ol>
+            <li><strong>Choose a theme:</strong> Toggle light/dark mode with the moon/sun icon</li>
+            <li><strong>Try the live preview:</strong> Start typing in any field and watch the QR generate</li>
+            <li><strong>Experiment with styles:</strong> Switch between Square, Dots, and Rounded</li>
+            <li><strong>Test batch mode:</strong> Upload the <code>sample-batch.csv</code> file</li>
+            <li><strong>Add a logo:</strong> Upload your school logo to personalize codes</li>
+        </ol>
+
+        <h2>📱 Installing as PWA</h2>
+        <p>For the best experience, install CodeEdAI QR Generator as an app:</p>
+        <ol>
+            <li>Open the tool using Option 2 or 3 (needs HTTPS or localhost)</li>
+            <li>Look for install prompt at bottom-right, or</li>
+            <li>Click browser menu → "Install CodeEdAI QR" / "Add to Home Screen"</li>
+            <li>Now it works offline like a native app!</li>
+        </ol>
+
+        <h2>🎯 Using Batch Generation</h2>
+        <p><strong>CSV Format:</strong></p>
+        <code>Name1,https://url1.com</code><br>
+        <code>Name2,https://url2.com</code>
+        <p style="margin-top: 10px;">Each line creates one QR code. Download all as ZIP!</p>
+
+        <h2>💡 Pro Tips</h2>
+        <ul>
+            <li><strong>Logo size:</strong> 100x100px square logos work best</li>
+            <li><strong>Printing:</strong> Use Large size (500px) for physical prints</li>
+            <li><strong>Testing:</strong> Always test your QR codes with multiple devices</li>
+            <li><strong>WiFi codes:</strong> Perfect for sharing classroom WiFi securely</li>
+            <li><strong>Batch names:</strong> Use descriptive names like "Student_John" for easy sorting</li>
+        </ul>
+
+        <h2>🆘 Need Help?</h2>
+        <p>Check the <code>README.md</code> file for comprehensive documentation including:</p>
+        <ul>
+            <li>Detailed feature explanations</li>
+            <li>Troubleshooting guide</li>
+            <li>Educational use cases</li>
+            <li>Technical specifications</li>
+        </ul>
+
+        <div class="success">
+            <strong>You're all set! 🎉</strong><br>
+            Open <code>qr-generator-pro.html</code> and start creating professional QR codes for your classroom.
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; color: #666;">
+            Made with ❤️ by <a href="https://codeedai.com" style="color: #00cc6f; font-weight: bold;">CodeEdAI</a>
+        </p>
+    </div>
+</body>
+</html>
