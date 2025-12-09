@@ -55,28 +55,34 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            padding: 20px;
+            padding: 12px;
             transition: background 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* MOBILE-FIRST HEADER */
         .header {
             max-width: 1400px;
-            margin: 0 auto 32px;
+            margin: 0 auto 20px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border-color);
+            gap: 12px;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .logo-text {
-            font-size: 1.75rem;
+            font-size: clamp(1.25rem, 5vw, 1.75rem);
             font-weight: 800;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
@@ -88,12 +94,13 @@
         .badge {
             background: var(--accent-primary);
             color: var(--bg-primary);
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: clamp(0.65rem, 2vw, 0.7rem);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         .header-actions {
@@ -111,10 +118,11 @@
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .theme-toggle:hover {
-            border-color: var(--accent-primary);
+        .theme-toggle:active {
+            transform: scale(0.95);
         }
 
         .theme-toggle-slider {
@@ -136,36 +144,35 @@
             transform: translateX(22px);
         }
 
+        /* MOBILE-FIRST GRID */
         .main-container {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        @media (max-width: 1024px) {
+        @media (min-width: 1024px) {
             .main-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
             }
         }
 
+        /* FLUID CARDS */
         .card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 32px;
+            padding: clamp(20px, 4vw, 32px);
             transition: border-color 0.3s ease;
         }
 
-        .card:hover {
-            border-color: var(--border-accent);
-        }
-
         .card-title {
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -177,29 +184,33 @@
             background: var(--accent-primary);
             border-radius: 50%;
             box-shadow: 0 0 12px var(--accent-primary);
+            flex-shrink: 0;
         }
 
+        /* MOBILE-OPTIMIZED TABS */
         .tabs {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: var(--bg-tertiary);
             padding: 4px;
             border-radius: 12px;
         }
 
         .tab {
-            flex: 1;
-            padding: 10px 16px;
+            padding: 12px 16px;
             border: none;
             background: transparent;
             color: var(--text-secondary);
             font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.9rem);
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            white-space: nowrap;
         }
 
         .tab.active {
@@ -208,8 +219,13 @@
             box-shadow: 0 2px 8px var(--shadow-color);
         }
 
+        .tab:active {
+            transform: scale(0.97);
+        }
+
+        /* MOBILE-FRIENDLY INPUTS */
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
@@ -217,7 +233,7 @@
             margin-bottom: 8px;
             color: var(--text-secondary);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -230,8 +246,11 @@
             border-radius: 10px;
             color: var(--text-primary);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
             transition: all 0.2s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -246,14 +265,21 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
+        /* RESPONSIVE STYLE GRID */
         .style-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 10px;
+        }
+
+        @media (min-width: 480px) {
+            .style-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .style-option {
-            padding: 16px;
+            padding: clamp(12px, 3vw, 16px);
             background: var(--bg-tertiary);
             border: 2px solid var(--border-color);
             border-radius: 10px;
@@ -261,12 +287,16 @@
             cursor: pointer;
             transition: all 0.2s ease;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: clamp(0.8rem, 2vw, 0.85rem);
+            -webkit-tap-highlight-color: transparent;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .style-option:hover {
-            border-color: var(--accent-primary);
-            transform: translateY(-2px);
+        .style-option:active {
+            transform: scale(0.95);
         }
 
         .style-option.active {
@@ -276,19 +306,25 @@
             box-shadow: 0 4px 12px var(--shadow-color);
         }
 
+        /* TOUCH-FRIENDLY LOGO UPLOAD */
         .logo-upload-area {
             border: 2px dashed var(--border-color);
             border-radius: 10px;
-            padding: 32px;
+            padding: clamp(20px, 5vw, 32px);
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
             background: var(--bg-tertiary);
+            -webkit-tap-highlight-color: transparent;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .logo-upload-area:hover {
-            border-color: var(--accent-primary);
-            background: var(--bg-secondary);
+        .logo-upload-area:active {
+            transform: scale(0.98);
         }
 
         .logo-upload-area.has-logo {
@@ -297,8 +333,8 @@
         }
 
         .logo-preview {
-            max-width: 100px;
-            max-height: 100px;
+            max-width: 80px;
+            max-height: 80px;
             margin: 12px auto;
             display: none;
         }
@@ -307,17 +343,32 @@
             display: block;
         }
 
+        #logo-text {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+
+        /* MOBILE-OPTIMIZED BUTTONS */
         .button {
-            padding: 14px 24px;
+            padding: clamp(12px, 3vw, 14px) clamp(16px, 4vw, 24px);
             border: none;
             border-radius: 10px;
             font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .button:active {
+            transform: scale(0.97);
         }
 
         .button-primary {
@@ -326,65 +377,75 @@
             box-shadow: 0 4px 12px var(--shadow-color);
         }
 
-        .button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px var(--shadow-color);
-        }
-
         .button-secondary {
             background: var(--bg-tertiary);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
 
-        .button-secondary:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-        }
-
+        /* RESPONSIVE BUTTON GROUP */
         .button-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .button-group .button {
-            flex: 1;
+        @media (min-width: 480px) {
+            .button-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
+        @media (min-width: 768px) {
+            .button-group {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* FLUID PREVIEW CONTAINER */
         .preview-container {
             background: var(--bg-tertiary);
             border-radius: 16px;
-            padding: 48px;
+            padding: clamp(24px, 5vw, 48px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
+            min-height: clamp(300px, 60vw, 500px);
             position: relative;
         }
 
         .preview-empty {
             text-align: center;
             color: var(--text-tertiary);
+            padding: 20px;
         }
 
         .preview-empty-icon {
-            width: 80px;
-            height: 80px;
+            width: clamp(60px, 15vw, 80px);
+            height: clamp(60px, 15vw, 80px);
             margin: 0 auto 20px;
             opacity: 0.3;
         }
 
+        .preview-empty p {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        }
+
+        /* RESPONSIVE QR CODE DISPLAY */
         #qrcode {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
         #qrcode canvas, #qrcode img {
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            height: auto;
         }
 
         .batch-section {
@@ -398,7 +459,8 @@
         .file-upload-btn {
             position: relative;
             overflow: hidden;
-            display: inline-block;
+            display: block;
+            width: 100%;
         }
 
         .file-upload-btn input[type=file] {
@@ -406,32 +468,43 @@
             left: -9999px;
         }
 
+        .file-upload-btn label {
+            display: block;
+            width: 100%;
+            margin: 0;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
         .batch-preview {
-            margin-top: 20px;
-            padding: 20px;
+            margin-top: 16px;
+            padding: 16px;
             background: var(--bg-tertiary);
             border-radius: 10px;
             max-height: 200px;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .batch-item {
-            padding: 8px 12px;
-            margin: 4px 0;
+            padding: 10px 12px;
+            margin: 6px 0;
             background: var(--bg-secondary);
             border-radius: 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            word-break: break-all;
         }
 
+        /* MOBILE-FRIENDLY FOOTER */
         .footer {
             max-width: 1400px;
-            margin: 48px auto 0;
-            padding: 24px 0;
+            margin: 32px auto 0;
+            padding: 20px 0;
             border-top: 1px solid var(--border-color);
             text-align: center;
             color: var(--text-tertiary);
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         .footer a {
@@ -440,10 +513,7 @@
             font-weight: 600;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
+        /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -463,24 +533,46 @@
             animation-delay: 0.1s;
         }
 
+        /* MOBILE-OPTIMIZED INSTALL PROMPT */
         .install-prompt {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-accent);
             border-radius: 12px;
-            padding: 16px 20px;
+            padding: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             animation: fadeInUp 0.5s ease;
         }
 
+        @media (min-width: 640px) {
+            .install-prompt {
+                left: auto;
+                right: 20px;
+                max-width: 400px;
+            }
+        }
+
         .install-prompt.active {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .install-prompt > div {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .install-prompt .button {
+            min-width: 100px;
+            padding: 10px 20px;
+            min-height: 40px;
         }
 
         .close-install {
@@ -488,9 +580,57 @@
             border: none;
             color: var(--text-secondary);
             cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0;
-            margin-left: 8px;
+            font-size: 1.5rem;
+            padding: 4px;
+            -webkit-tap-highlight-color: transparent;
+            min-width: 32px;
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* SCROLLBAR STYLING */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* SAFE AREA FOR MOBILE DEVICES */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(12px, env(safe-area-inset-left));
+                padding-right: max(12px, env(safe-area-inset-right));
+                padding-bottom: max(12px, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* LANDSCAPE MOBILE OPTIMIZATION */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .preview-container {
+                min-height: 250px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .header {
+                margin-bottom: 12px;
+            }
         }
     </style>
 </head>
@@ -698,6 +838,7 @@
 
 <script>
 let currentQRCode = null;
+let currentQRData = null;
 let currentStyle = 'square';
 let currentSize = 300;
 let logoImage = null;
@@ -772,24 +913,45 @@ function selectSize(size) {
     if (currentQRCode) generateQR();
 }
 
-// Logo Upload
+// Logo Upload - COMPLETELY REWRITTEN FOR RELIABILITY
 function handleLogoUpload(event) {
     const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            logoImage = new Image();
-            logoImage.onload = function() {
-                document.getElementById('logo-preview').src = e.target.result;
-                document.getElementById('logo-preview').classList.add('active');
-                document.querySelector('.logo-upload-area').classList.add('has-logo');
-                document.getElementById('logo-text').innerHTML = '✓ Logo uploaded<br><small>Click to change</small>';
-                if (currentQRCode) generateQR();
-            };
-            logoImage.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
+    if (!file) return;
+    
+    // Validate file type
+    const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml', 'image/webp'];
+    if (!validTypes.includes(file.type)) {
+        alert('Please upload a valid image file (PNG, JPG, SVG, or WebP)');
+        return;
     }
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            // Store the loaded image
+            logoImage = img;
+            
+            // Update UI
+            document.getElementById('logo-preview').src = e.target.result;
+            document.getElementById('logo-preview').classList.add('active');
+            document.querySelector('.logo-upload-area').classList.add('has-logo');
+            document.getElementById('logo-text').innerHTML = '✓ Logo uploaded<br><small style="color: var(--text-tertiary);">Click to change</small>';
+            
+            // Regenerate QR code if one exists
+            if (currentQRCode) {
+                generateQR();
+            }
+        };
+        img.onerror = function() {
+            alert('Error loading image. Please try a different file.');
+        };
+        img.src = e.target.result;
+    };
+    reader.onerror = function() {
+        alert('Error reading file. Please try again.');
+    };
+    reader.readAsDataURL(file);
 }
 
 // Get QR Data
@@ -822,7 +984,7 @@ function livePreview() {
     }, 500);
 }
 
-// Generate QR with Custom Style
+// COMPLETELY REWRITTEN QR GENERATION WITH PROPER STYLE SUPPORT
 function generateQR() {
     const data = getQRData();
     if (!data) return;
@@ -832,112 +994,176 @@ function generateQR() {
     
     document.getElementById('preview-empty').style.display = 'none';
 
-    // Generate base QR
-    currentQRCode = new QRCode(qrcodeDiv, {
-        text: data,
-        width: currentSize,
-        height: currentSize,
-        correctLevel: QRCode.CorrectLevel.H
-    });
+    // Create temporary div for QR generation
+    const tempDiv = document.createElement('div');
+    tempDiv.style.display = 'none';
+    document.body.appendChild(tempDiv);
 
-    // Apply custom styling
-    setTimeout(() => {
-        applyCustomStyle();
-        addLogo();
-        generateSVG(data);
-    }, 100);
+    // Generate base QR code
+    try {
+        currentQRCode = new QRCode(tempDiv, {
+            text: data,
+            width: currentSize,
+            height: currentSize,
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Wait for QR code to be generated
+        setTimeout(() => {
+            try {
+                // Get the QR code data
+                currentQRData = currentQRCode._oQRCode;
+                
+                // Create custom styled canvas
+                const canvas = createStyledQRCanvas(currentQRData, currentSize, currentStyle);
+                
+                // Add logo if exists
+                if (logoImage) {
+                    addLogoToCanvas(canvas);
+                }
+                
+                // Add canvas to display
+                qrcodeDiv.appendChild(canvas);
+                
+                // Generate SVG version
+                generateSVG(currentQRData);
+                
+                // Clean up temp div
+                document.body.removeChild(tempDiv);
+            } catch (error) {
+                console.error('Error styling QR code:', error);
+                alert('Error generating styled QR code. Please try again.');
+                document.body.removeChild(tempDiv);
+            }
+        }, 100);
+    } catch (error) {
+        console.error('Error generating QR code:', error);
+        alert('Error generating QR code. Please check your input.');
+        document.body.removeChild(tempDiv);
+    }
 }
 
-// Apply Custom Styles
-function applyCustomStyle() {
-    const canvas = document.querySelector('#qrcode canvas');
-    if (!canvas) return;
-
+// CREATE STYLED QR CANVAS - PROPERLY IMPLEMENTED
+function createStyledQRCanvas(qrData, size, style) {
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
     const ctx = canvas.getContext('2d');
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-
-    if (currentStyle === 'dots') {
-        // Convert squares to dots
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const moduleSize = canvas.width / 33; // Approximate module count
-        
-        for (let y = 0; y < canvas.height; y += moduleSize) {
-            for (let x = 0; x < canvas.width; x += moduleSize) {
-                const i = (y * canvas.width + x) * 4;
-                if (data[i] === 0) { // Black pixel
-                    ctx.fillStyle = '#000000';
+    
+    // Fill white background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    
+    // Get module count
+    const moduleCount = qrData.getModuleCount();
+    const cellSize = size / moduleCount;
+    
+    // Draw QR code based on style
+    ctx.fillStyle = '#000000';
+    
+    for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+            if (qrData.isDark(row, col)) {
+                const x = col * cellSize;
+                const y = row * cellSize;
+                
+                if (style === 'dots') {
+                    // Draw circular dots
                     ctx.beginPath();
-                    ctx.arc(x + moduleSize/2, y + moduleSize/2, moduleSize * 0.4, 0, Math.PI * 2);
+                    ctx.arc(
+                        x + cellSize / 2, 
+                        y + cellSize / 2, 
+                        cellSize * 0.45, 
+                        0, 
+                        Math.PI * 2
+                    );
                     ctx.fill();
-                }
-            }
-        }
-    } else if (currentStyle === 'rounded') {
-        // Rounded corners effect
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const moduleSize = canvas.width / 33;
-        
-        for (let y = 0; y < canvas.height; y += moduleSize) {
-            for (let x = 0; x < canvas.width; x += moduleSize) {
-                const i = (y * canvas.width + x) * 4;
-                if (data[i] === 0) {
-                    ctx.fillStyle = '#000000';
+                } else if (style === 'rounded') {
+                    // Draw rounded rectangles
+                    const radius = cellSize * 0.35;
+                    const rectSize = cellSize * 0.92;
                     ctx.beginPath();
-                    ctx.roundRect(x, y, moduleSize * 0.9, moduleSize * 0.9, moduleSize * 0.3);
+                    ctx.roundRect(x, y, rectSize, rectSize, radius);
                     ctx.fill();
+                } else {
+                    // Draw square (default)
+                    ctx.fillRect(x, y, cellSize, cellSize);
                 }
             }
         }
     }
+    
+    return canvas;
 }
 
-// Add Logo to QR
-function addLogo() {
+// ADD LOGO TO CANVAS - PROPERLY IMPLEMENTED
+function addLogoToCanvas(canvas) {
     if (!logoImage) return;
-
-    const canvas = document.querySelector('#qrcode canvas');
-    if (!canvas) return;
-
+    
     const ctx = canvas.getContext('2d');
-    const logoSize = canvas.width * 0.2;
+    const logoSize = canvas.width * 0.22;  // 22% of QR size
     const logoX = (canvas.width - logoSize) / 2;
     const logoY = (canvas.height - logoSize) / 2;
-
-    // White background for logo
+    const padding = 8;
+    
+    // Draw white background with padding
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(logoX - 10, logoY - 10, logoSize + 20, logoSize + 20);
-
+    ctx.fillRect(
+        logoX - padding, 
+        logoY - padding, 
+        logoSize + (padding * 2), 
+        logoSize + (padding * 2)
+    );
+    
     // Draw logo
-    ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
+    try {
+        ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
+    } catch (error) {
+        console.error('Error drawing logo:', error);
+    }
 }
 
-// Generate SVG
-function generateSVG(text) {
-    if (!currentQRCode) return;
+// GENERATE SVG - PROPERLY IMPLEMENTED
+function generateSVG(qrData) {
+    if (!qrData) return;
     
-    const qr = currentQRCode._oQRCode;
-    const count = qr.getModuleCount();
-    const cellSize = currentSize / count;
+    const moduleCount = qrData.getModuleCount();
+    const cellSize = currentSize / moduleCount;
     
     let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${currentSize}" height="${currentSize}" viewBox="0 0 ${currentSize} ${currentSize}">`;
     svg += `<rect width="${currentSize}" height="${currentSize}" fill="white"/>`;
 
-    for (let r = 0; r < count; r++) {
-        for (let c = 0; c < count; c++) {
-            if (qr.isDark(r, c)) {
-                const x = c * cellSize;
-                const y = r * cellSize;
+    for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+            if (qrData.isDark(row, col)) {
+                const x = col * cellSize;
+                const y = row * cellSize;
                 
                 if (currentStyle === 'dots') {
-                    svg += `<circle cx="${x + cellSize/2}" cy="${y + cellSize/2}" r="${cellSize * 0.4}" fill="black"/>`;
+                    const cx = x + cellSize / 2;
+                    const cy = y + cellSize / 2;
+                    const r = cellSize * 0.45;
+                    svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="black"/>`;
                 } else if (currentStyle === 'rounded') {
-                    svg += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" rx="${cellSize * 0.3}" fill="black"/>`;
+                    const radius = cellSize * 0.35;
+                    const size = cellSize * 0.92;
+                    svg += `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="${radius}" fill="black"/>`;
                 } else {
                     svg += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" fill="black"/>`;
                 }
             }
         }
+    }
+    
+    // Add logo to SVG if exists
+    if (logoImage && logoImage.src) {
+        const logoSize = currentSize * 0.22;
+        const logoX = (currentSize - logoSize) / 2;
+        const logoY = (currentSize - logoSize) / 2;
+        const padding = 8;
+        
+        svg += `<rect x="${logoX - padding}" y="${logoY - padding}" width="${logoSize + padding * 2}" height="${logoSize + padding * 2}" fill="white"/>`;
+        svg += `<image x="${logoX}" y="${logoY}" width="${logoSize}" height="${logoSize}" href="${logoImage.src}"/>`;
     }
 
     svg += "</svg>";
@@ -954,7 +1180,7 @@ function downloadPNG() {
     
     const url = canvas.toDataURL('image/png');
     const link = document.createElement('a');
-    link.download = `qrcode-${Date.now()}.png`;
+    link.download = `codeedai-qr-${Date.now()}.png`;
     link.href = url;
     link.click();
 }
@@ -969,7 +1195,7 @@ function downloadSVG() {
     const blob = new Blob([svgData], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.download = `qrcode-${Date.now()}.svg`;
+    link.download = `codeedai-qr-${Date.now()}.svg`;
     link.href = url;
     link.click();
 }
@@ -999,7 +1225,7 @@ function downloadPDF() {
     pdf.setFontSize(12);
     pdf.text('QR Code Generated by CodeEdAI', 105, 170, { align: 'center' });
     
-    pdf.save(`qrcode-${Date.now()}.pdf`);
+    pdf.save(`codeedai-qr-${Date.now()}.pdf`);
 }
 
 // Batch CSV Processing
@@ -1043,31 +1269,44 @@ async function generateBatch() {
     preview.innerHTML = '<strong>Generating QR codes...</strong><br>';
 
     for (const item of batchData) {
-        const canvas = document.createElement('canvas');
-        canvas.width = 500;
-        canvas.height = 500;
-        
+        // Create temporary div for this QR
         const tempDiv = document.createElement('div');
-        const qr = new QRCode(tempDiv, {
-            text: item.url,
-            width: 500,
-            height: 500,
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        await new Promise(resolve => setTimeout(resolve, 100));
+        tempDiv.style.display = 'none';
+        document.body.appendChild(tempDiv);
         
-        const qrCanvas = tempDiv.querySelector('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(qrCanvas, 0, 0);
+        try {
+            const qr = new QRCode(tempDiv, {
+                text: item.url,
+                width: 500,
+                height: 500,
+                correctLevel: QRCode.CorrectLevel.H
+            });
 
-        const dataUrl = canvas.toDataURL('image/png');
-        batchQRCodes.push({
-            name: item.name,
-            dataUrl: dataUrl
-        });
+            await new Promise(resolve => setTimeout(resolve, 150));
+            
+            // Get QR data and create styled canvas
+            const qrData = qr._oQRCode;
+            const canvas = createStyledQRCanvas(qrData, 500, currentStyle);
+            
+            // Add logo if exists
+            if (logoImage) {
+                addLogoToCanvas(canvas);
+            }
+            
+            const dataUrl = canvas.toDataURL('image/png');
+            batchQRCodes.push({
+                name: item.name,
+                dataUrl: dataUrl
+            });
 
-        preview.innerHTML += `<div class="batch-item">✓ ${item.name}</div>`;
+            preview.innerHTML += `<div class="batch-item">✓ ${item.name}</div>`;
+            
+            document.body.removeChild(tempDiv);
+        } catch (error) {
+            console.error(`Error generating QR for ${item.name}:`, error);
+            preview.innerHTML += `<div class="batch-item" style="color: #ff4444;">✗ ${item.name} - Error</div>`;
+            document.body.removeChild(tempDiv);
+        }
     }
 
     document.getElementById('download-batch-btn').disabled = false;
@@ -1076,7 +1315,7 @@ async function generateBatch() {
 
 async function downloadBatchZip() {
     const zip = new JSZip();
-    const folder = zip.folder('qr-codes');
+    const folder = zip.folder('codeedai-qr-codes');
 
     batchQRCodes.forEach(item => {
         const base64Data = item.dataUrl.split(',')[1];
@@ -1086,7 +1325,7 @@ async function downloadBatchZip() {
     const content = await zip.generateAsync({ type: 'blob' });
     const url = URL.createObjectURL(content);
     const link = document.createElement('a');
-    link.download = `qr-codes-batch-${Date.now()}.zip`;
+    link.download = `codeedai-qr-batch-${Date.now()}.zip`;
     link.href = url;
     link.click();
 }
@@ -1098,11 +1337,15 @@ function clearAll() {
     document.getElementById('qr-data').value = '';
     document.getElementById('qr-text').value = '';
     document.getElementById('qr-email').value = '';
+    document.getElementById('wifi-ssid').value = '';
+    document.getElementById('wifi-password').value = '';
     logoImage = null;
     document.getElementById('logo-preview').classList.remove('active');
     document.querySelector('.logo-upload-area').classList.remove('has-logo');
     document.getElementById('logo-text').innerHTML = '📸 Click to upload logo<br><small style="color: var(--text-tertiary);">PNG, JPG, SVG (recommended: 100x100px)</small>';
     currentQRCode = null;
+    currentQRData = null;
+    svgData = '';
 }
 
 // PWA Support
@@ -1135,6 +1378,8 @@ function closeInstallPrompt() {
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(() => {
         console.log('Service Worker registered');
+    }).catch(err => {
+        console.log('Service Worker registration failed:', err);
     });
 }
 </script>
